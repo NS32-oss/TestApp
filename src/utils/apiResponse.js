@@ -5,3 +5,5 @@ class apiResponse {
     this.data = data;
   }
 }
+
+export default apiResponse;

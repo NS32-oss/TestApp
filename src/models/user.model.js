@@ -60,9 +60,18 @@ userSchema.methods.isPasswordMatch = async function (password) {
 };
 
 userSchema.methods.generateAccessToken = function () {
-  return jwt.sign({ id: this.id,username:this.username,fullname:this.fullname,email:this.email }, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
-  });
+  return jwt.sign(
+    {
+      id: this.id,
+      username: this.username,
+      fullname: this.fullname,
+      email: this.email,
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    {
+      expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
+    }
+  );
 };
 
 userSchema.methods.generateRefreshToken = function () {
